@@ -1,0 +1,10 @@
+clc;clear;
+load classifier;
+%load TrainedClassifier;
+[filename, pathname] = uigetfile('*.*');
+filename = [pathname filename];
+Img = imread(filename);
+[feature] = extractHOGFeatures(Img);
+Class = predict(classifier,feature);
+%Class =predict(TrainedClassifier.ClassificaionSVM,feature);
+disp(Class);
